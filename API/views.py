@@ -62,7 +62,7 @@ def genOtp(request):
     
     body = f"Thank you for registering for treasure hunt . Your one time password to get started is  {otp} .We hope you keep it confidential. Vamos!!"
     mail = data.get("mail")
-    print(to)
+   
     server.login(config.EMAIL, config.PASSWORD)
     server.sendmail(config.EMAIL, mail, body)
     server.close()
@@ -81,7 +81,7 @@ def genOtp(request):
     #     pass
     # else:
     #     return render(request, 'API/email.html')
-    print("hello")
+   
     # print(username)
     # print(mail)
 
