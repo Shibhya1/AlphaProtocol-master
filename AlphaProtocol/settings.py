@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 from .config import *
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -82,13 +83,16 @@ WSGI_APPLICATION = 'AlphaProtocol.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'iris.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'iris.sqlite3',
+#     }
+# }
 
+DATABASES= {
+    'default':dj_database_url.parse("postgres://testdb_q3fx_user:ElEgSt0HPxZ1vpHMdVoVH69AWi49KUXh@dpg-cjsqagm8b8as73fcsrd0-a.oregon-postgres.render.com/testdb_q3fx")
+}
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
@@ -133,6 +137,7 @@ USE_TZ = True
 
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
+MEDIA_URL='media/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]

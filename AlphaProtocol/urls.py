@@ -17,9 +17,10 @@ from django.contrib import admin
 from django.urls import path,include
 from django.templatetags.static import static
 from django.views.generic.base import RedirectView
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ap/', include('API.urls')),
     path('favicon.ico', RedirectView.as_view(url=static('img/secretagent.ico'))),
 ]
+urlpatterns+=staticfiles_urlpatterns()
